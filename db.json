@@ -1,6 +1,20 @@
 {
-  "todos": [
-    { "id": 1, "name": "Hưng", "content": "Nguyễn" },
-    { "id": 2, "name": "Trường", "content": "Nguyễn" }
-  ]
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Hưng",
+      "content": "Nguyễn"
+    },
+    {
+      "id": 2,
+      "name": "Trường",
+      "content": "Nguyễn"
+    },
+    {
+      "id": 3,
+      "name": "Demo3",
+      "content": "Demo3"
+    }
+  ],
+  "schedule": []
 }
