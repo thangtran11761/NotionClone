@@ -1,12 +1,10 @@
 import React, { memo } from 'react'
 
 const Task = memo
-    (props => {
-        console.log(props.name);
-
+    (({ task }) => {
         return (
             <div>
-                {props.name}
+                {task.name}
             </div>
         )
     })
