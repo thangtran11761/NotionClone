@@ -3,17 +3,23 @@
     {
       "id": 1,
       "name": "Hưng",
-      "content": "Nguyễn"
+      "content": "Nguyễn",
+      "type": "TASK",
+      "status": "TODO"
     },
     {
       "id": 2,
       "name": "Trường",
-      "content": "Nguyễn"
+      "content": "Nguyễn",
+      "type": "TASK",
+      "status": "INPROGRESS"
     },
     {
       "id": 3,
       "name": "Demo3",
-      "content": "Demo3"
+      "content": "Demo3",
+      "type": "TASK",
+      "status": "COMPLETE"
     }
   ],
   "schedule": []
