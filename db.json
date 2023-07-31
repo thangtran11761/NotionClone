@@ -1,0 +1,6 @@
+{
+  "todos": [
+    { "id": 1, "name": "Hưng", "content": "Nguyễn" },
+    { "id": 2, "name": "Trường", "content": "Nguyễn" }
+  ]
+}
