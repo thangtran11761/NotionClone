@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 
 import Task from './Task'
 
-const InProgressTask = memo((tasks) => {
+const InProgressTask = memo(({ tasks }) => {
     return (
         <div>
             {tasks.map(task => {
