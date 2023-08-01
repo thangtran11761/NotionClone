@@ -12,7 +12,7 @@ npm start
 
 # lib
 
-reduxjs/toolkit , react-redux, antd
+reduxjs/toolkit , react-redux, , redux, antd
 
 # Getting Started with Create React App
 
