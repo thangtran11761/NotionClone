@@ -1,13 +1,24 @@
 import React, { memo } from 'react'
-import ListOfTasks from '../components/ListOfTasks'
+import { Col, Row, Layout, Space } from 'antd';
+
+import ListOfTasks from '../components/Task/ListOfTasks'
+import SideBar from '../components/SideBar';
+
+import classes from './style.module.css'
+
+const { Sider, Content } = Layout;
 
 const Main = () => {
-    console.log('main');
     return (
-        <div>
-            Notion clone
-            <ListOfTasks />
-        </div>
+        <Layout className={classes.layout}>
+            <Sider style={{ backgroundColor: '#fff' }}>
+                <SideBar />
+            </Sider>
+            <Layout>
+                <ListOfTasks />
+            </Layout>
+        </Layout>
+
     )
 }
 
