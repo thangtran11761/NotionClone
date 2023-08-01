@@ -1,0 +1,12 @@
+.popup-add-page {
+    position: absolute;
+}
+
+.popup-div-close {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.popup-close:hover {
+    cursor: pointer;
+}
