@@ -1,26 +1,81 @@
 {
-  "tasks": [
+  "todos": [
     {
       "id": 1,
       "name": "Hưng",
       "content": "Nguyễn",
-      "type": "TASK",
-      "status": "TODO"
+      "idCol": "1"
     },
     {
       "id": 2,
       "name": "Trường",
       "content": "Nguyễn",
-      "type": "TASK",
-      "status": "INPROGRESS"
+      "idCol": 2
     },
     {
       "id": 3,
       "name": "Demo3",
       "content": "Demo3",
-      "type": "TASK",
-      "status": "COMPLETE"
+      "idCol": 3
+    },
+    {
+      "id": 4,
+      "name": "Demo4",
+      "content": "Demo4",
+      "idCol": 1
+    },
+    {
+      "id": 5,
+      "name": "Demo4",
+      "content": "Demo4",
+      "idCol": 1
     }
   ],
-  "schedule": []
+  "schedule": [],
+  "tasks": [
+    {
+      "id": 1,
+      "column": [1, 2, 3]
+    }
+  ],
+  "column": [
+    {
+      "id": 1,
+      "name": "To-do",
+      "col": 1,
+      "type": "tasks"
+    },
+    {
+      "id": 2,
+      "name": "In progress",
+      "col": 2,
+      "type": "tasks"
+    },
+    {
+      "id": 3,
+      "name": "Complete",
+      "col": 3,
+      "type": "tasks"
+    }
+  ],
+  "pages": [
+    {
+      "id": 1,
+      "type": "tasks",
+      "name": "Nhiem vu thang 8"
+    },
+    {
+      "id": 2,
+      "type": "schedule",
+      "name": "Lich thang 8"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "mail": "abc@gmail.com",
+      "password": "secret",
+      "username": "Thang Tran"
+    }
+  ]
 }
