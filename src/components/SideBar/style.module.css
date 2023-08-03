@@ -1,3 +1,7 @@
+.container-sidebar {
+    height: 100%;
+}
+
 .btn-add-page {
     position: relative;
 }
