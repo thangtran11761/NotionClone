@@ -1,3 +1,23 @@
+.container {
+
+}
+
+.container-top {
+
+}
+
 .container-bottom {
     display: flex;
+}
+
+.column-container {
+
+}
+
+.column-top {
+
+}
+
+.column-bottom {
+    
 }
