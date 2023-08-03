@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 
-const PageContext = React.createContext();
+export const PageContext = React.createContext();
 
 export const PageProvider = ({ children }) => {
   const [page, setPage] = useState({
     id: null,
     type: "",
+    name: "",
   });
 
-  const onChangePageHandler = (id, type) => {
+  const onChangePageHandler = (page) => {
     setPage({
-      id: id,
-      type: type,
+      id: page.id,
+      type: page.type,
+      name: page.name,
     });
   };
 
