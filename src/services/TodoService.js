@@ -1,4 +1,4 @@
-import httpRequestJson from "./common";
+import { httpRequestJson } from "./common";
 
 export const getTodos = async () => {
   return httpRequestJson("GET", "todos");

@@ -1,5 +1,4 @@
-async function httpRequestJson(method, uri, body) {
-  // const apiUrl = `https://jsonplaceholder.typicode.com/todos${uri}`;
+export async function httpRequestJson(method, uri, body) {
   const apiUrl = `http://localhost:3001/${uri}`;
 
   let options = {
@@ -16,5 +15,3 @@ async function httpRequestJson(method, uri, body) {
   const res = await fetch(apiUrl, options);
   return res.json();
 }
-
-export default httpRequestJson;
