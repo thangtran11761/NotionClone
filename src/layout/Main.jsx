@@ -14,11 +14,11 @@ const Main = () => {
 
     return (
         <Layout className={classes.layout}>
-            <Sider style={{ backgroundColor: '#fff' }}>
+            <Sider width={240}>
                 <SideBar />
             </Sider>
-            <Layout>
-                {pageCtx.page?.type === 'tasks' && (< Task page={pageCtx.page} />)}
+            <Layout className={classes.content}>
+                {pageCtx.page?.type === 'task' && (< Task page={pageCtx.page} />)}
             </Layout>
         </Layout>
     )

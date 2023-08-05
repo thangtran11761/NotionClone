@@ -1,3 +1,7 @@
 .layout {
     height: calc(100vh) ;
 }
+
+.content {
+    background-color: #fff;
+}
