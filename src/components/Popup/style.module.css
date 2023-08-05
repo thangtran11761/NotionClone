@@ -10,3 +10,45 @@
 .popup-close:hover {
     cursor: pointer;
 }
+
+.popup-wrap-component {
+    padding: 10px;
+}
+
+.name-page {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    color: #37352f;
+    font-size: 14px;
+    padding: 4px;
+    border: 1px solid #9a9995;
+    outline: none;
+}
+
+.select-page {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    font-size: 14px;
+    padding: 4px;
+    border: 1px solid #9a9995; 
+    outline: none; 
+    color: #37352f;
+}
+
+.btn-add-page {
+    width: 40%;
+    margin: 0 auto;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #9a9995; 
+    padding: 4px 0;
+    background-color:rgba(211, 209, 203, 0.4);
+    color: #37352f;
+}
+
+.btn-add-page:hover  {
+    background-color:rgba(211, 209, 203, 0.8);
+    color: #9a9995;
+}
