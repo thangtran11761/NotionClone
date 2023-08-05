@@ -32,10 +32,14 @@
     }
   ],
   "schedule": [],
-  "tasks": [
+  "task": [
     {
       "id": 1,
-      "column": [1, 2, 3],
+      "column": [
+        1,
+        2,
+        3
+      ],
       "idPage": 1,
       "name": "Nhiem vu thang 8"
     }
@@ -45,34 +49,54 @@
       "id": 1,
       "name": "To-do",
       "col": 1,
-      "type": "tasks",
+      "type": "task",
       "idPage": 1
     },
     {
       "id": 2,
       "name": "In progress",
       "col": 2,
-      "type": "tasks",
+      "type": "task",
       "idPage": 1
     },
     {
       "id": 3,
       "name": "Complete",
       "col": 3,
-      "type": "tasks",
+      "type": "task",
       "idPage": 1
     }
   ],
   "pages": [
     {
       "id": 1,
-      "type": "tasks",
+      "type": "task",
       "name": "Nhiem vu thang 8"
     },
     {
       "id": 2,
       "type": "schedule",
       "name": "Lich thang 8"
+    },
+    {
+      "type": "task",
+      "name": "Nhiem vu AOE",
+      "id": 4
+    },
+    {
+      "type": "schedule",
+      "name": "Lich di choi",
+      "id": 5
+    },
+    {
+      "type": "text",
+      "name": "Nhap linh tinh",
+      "id": 6
+    },
+    {
+      "type": "project",
+      "name": "Dự án siêu cấp",
+      "id": 7
     }
   ],
   "users": [
@@ -81,6 +105,24 @@
       "mail": "abc@gmail.com",
       "password": "secret",
       "username": "Thang Tran"
+    }
+  ],
+  "typePage": [
+    {
+      "id": 1,
+      "name": "task"
+    },
+    {
+      "id": 2,
+      "name": "schedule"
+    },
+    {
+      "id": 3,
+      "name": "project"
+    },
+    {
+      "id": 4,
+      "name": "text"
     }
   ]
 }
