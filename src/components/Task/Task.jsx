@@ -31,7 +31,7 @@ const Task = ({ page }) => {
                 <div>{namePageTask}</div>
             </div>
             <div className={classes["container-bottom"]}>
-                {columns.map(column => {
+                {columns?.map(column => {
                     return <Col span={8}>
                         <ColumnTask idCol={column} todos={todos} />
                     </Col>
