@@ -4,44 +4,87 @@
       "id": 1,
       "name": "Hưng",
       "content": "Nguyễn",
-      "idCol": "1"
+      "idCol": "1",
+      "date": "20230701120000"
     },
     {
       "id": 2,
       "name": "Trường",
       "content": "Nguyễn",
-      "idCol": 2
+      "idCol": 2,
+      "date": "20230702120000"
     },
     {
       "id": 3,
       "name": "Demo3",
       "content": "Demo3",
-      "idCol": 3
+      "idCol": 3,
+      "date": "20230703120000"
     },
     {
       "id": 4,
       "name": "Demo4",
       "content": "Demo4",
-      "idCol": 1
+      "idCol": 1,
+      "date": "20230704120000"
     },
     {
       "id": 5,
       "name": "Demo4",
       "content": "Demo4",
-      "idCol": 1
+      "idCol": 1,
+      "date": "20230705120000"
     }
   ],
-  "schedule": [],
+  "schedule": [
+    {
+      "id": 1,
+      "idPage": 2,
+      "name": "Lich thang 8"
+    },
+    {
+      "id": 1,
+      "idPage": 5,
+      "name": "Lich di choi"
+    }
+  ],
   "task": [
     {
       "id": 1,
-      "column": [
-        1,
-        2,
-        3
-      ],
+      "column": [1, 2, 3],
       "idPage": 1,
       "name": "Nhiem vu thang 8"
+    },
+    {
+      "id": 2,
+      "column": [],
+      "idPage": 4,
+      "name": "Nhiem vu AOE"
+    },
+    {
+      "column": [],
+      "idPage": 8,
+      "name": "Demo 10",
+      "id": 3
+    }
+  ],
+  "text": [
+    {
+      "id": 1,
+      "idPage": 6,
+      "name": "Nhap linh tinh"
+    },
+    {
+      "idPage": 9,
+      "name": "Demo 20",
+      "id": 2
+    }
+  ],
+  "project": [
+    {
+      "id": 1,
+      "idPage": 7,
+      "name": "Dự án siêu cấp"
     }
   ],
   "column": [
@@ -97,6 +140,16 @@
       "type": "project",
       "name": "Dự án siêu cấp",
       "id": 7
+    },
+    {
+      "type": "task",
+      "name": "Demo 10",
+      "id": 8
+    },
+    {
+      "type": "text",
+      "name": "Demo 20",
+      "id": 9
     }
   ],
   "users": [
