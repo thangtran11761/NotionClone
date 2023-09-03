@@ -1,4 +1,5 @@
 import React, { memo, useEffect, useState } from 'react'
+import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons'
 
 import TaskItem from './TaskItem'
 
@@ -19,9 +20,19 @@ const ColumnTask = memo(({ idCol, todos }) => {
         }))
     }, [column, todos])
 
+
     return (
         <div className={classes['column-container']}>
-            <div className={classes['column-top']}>{column.name}</div>
+            <div className={classes['column-top']}>
+                <div className={classes['column-top_left']}>
+                    <div className={classes['column-top_name']}>{column.name}</div>
+                    <div className={classes['column-top_sum']}>{todoForColumn && todoForColumn.length}</div>
+                </div>
+                <div className={classes['column-top_right']}>
+                    <div className={classes['column-top_extension']}><EllipsisOutlined /></div>
+                    <div className={classes['column-top_new']}><PlusOutlined /></div>
+                </div>
+            </div>
             <div className={classes['column-bottom']}>
                 {todoForColumn?.map(todo => {
                     return <TaskItem key={todo.id} todo={todo} />

@@ -1,21 +1,115 @@
 .container {
-
+    display: flex;
+    flex: 1;
+    flex-direction: column;
 }
 
 .container-top {
+    height: 45px;
+    padding: 0 12px;
+    flex: 0 0 auto;
+}
 
+.name-page {
+    height: 100%;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    width: 50%;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 .container-bottom {
+    margin-top: 24px;
+    flex: 1;
+    overflow: scroll;
+}
+
+.container-bottom::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.container-bottom::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.container-bottom::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.container-bottom::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.container-bottom::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.wrap-columns {
+    border-top: 1px solid #efefef;
     display: flex;
+    padding-top: 10px;
+    width: 100%;
+    /* overflow: scroll; */
+    margin: 0 96px;
 }
 
 .column-container {
-
+    width: 260px;
+    margin-right: 10px;
+    padding: 0 5px;
+    box-sizing: border-box;
 }
 
 .column-top {
+    display: flex;
+    justify-content: space-between;
+    height: 24px;
+}
 
+.column-top_left,.column-top_right {
+    display: flex;
+}
+
+.column-top_name,.column-top_sum {
+    align-items: center;
+}
+
+.column-top_sum {
+    padding: 0px 8px;
+    color: rgba(211, 209, 203, 1);
+}
+
+.column-top_extension,.column-top_new {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    display: none;
+}
+
+.column-top:hover .column-top_extension,.column-top:hover .column-top_new {
+    display: block;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.column-top_extension:hover {
+    border-radius: 3px;
+    background-color: #efefef;
+}
+
+.column-top_new:hover {
+    background-color: #efefef;
+    border-radius: 3px;
 }
 
 .column-bottom {
