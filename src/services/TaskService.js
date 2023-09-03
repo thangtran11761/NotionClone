@@ -1,5 +1,9 @@
 import { httpRequestJson } from "./common";
 
-export const getTask = async (id) => {
-  return httpRequestJson("GET", `task/${id}`);
+export const getTasks = async () => {
+  return httpRequestJson("GET", `task`);
+};
+
+export const addTask = async (data) => {
+  return httpRequestJson("POST", `task`, data);
 };
