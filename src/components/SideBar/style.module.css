@@ -53,6 +53,11 @@
     justify-content: space-between;
 }
 
+.sidebar-page-item:active {
+    background-color: rgba(211, 209, 203, 0.4);
+    border-radius: 5px;
+}
+
 .sidebar-page-item:hover {
     cursor: pointer;
     background-color:rgba(211, 209, 203, 0.4);
@@ -70,7 +75,6 @@
 }
 
 .page-item-extension:hover {
-    /* background-color:rgba(211, 209, 203, 0.4); */
     background-color: #dddddc;
 }
 
