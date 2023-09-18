@@ -11,29 +11,30 @@
       "id": 2,
       "name": "Trường",
       "content": "Nguyễn",
-      "idCol": 2,
+      "idCol": 1,
       "date": "20230702120000"
     },
     {
       "id": 3,
       "name": "Demo3",
       "content": "Demo3",
-      "idCol": 3,
+      "idCol": 2,
       "date": "20230703120000"
     },
     {
-      "id": 4,
-      "name": "Demo4",
-      "content": "Demo4",
       "idCol": 1,
-      "date": "20230704120000"
+      "id": 4
     },
     {
-      "id": 5,
-      "name": "Demo4",
-      "content": "Demo4",
       "idCol": 1,
-      "date": "20230705120000"
+      "id": 5
+    },
+    {
+      "id": 6,
+      "name": "Demo6",
+      "content": "Demo6",
+      "idCol": 1,
+      "date": "20230918120000"
     }
   ],
   "schedule": [
@@ -51,7 +52,11 @@
   "task": [
     {
       "id": 1,
-      "column": [1, 2, 3],
+      "column": [
+        1,
+        2,
+        3
+      ],
       "idPage": 1,
       "name": "Nhiem vu thang 8"
     },
