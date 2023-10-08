@@ -5,8 +5,9 @@ import { addTask } from "../services/TaskService";
 import { addText } from "../services/TextServices";
 import { addSchedule } from "../services/ScheduleServices";
 import { addProject } from "../services/ProjectServices";
+import { addTodo } from "../services/TodoService";
 
-const initialState = { activity: true };
+const initialState = { activity: true, newTodo: true };
 
 const pageReducer = (state = initialState, action) => {
   if (action.type === "addPage") {
@@ -38,6 +39,11 @@ const pageReducer = (state = initialState, action) => {
   }
 
   if (action.type === "addColumn") {
+  }
+
+  if (action.type === "addTodo") {
+    addTodo(action.data).then((res) => console.log(res));
+    return { newTodo: !state.newTodo };
   }
 
   return state;
