@@ -123,7 +123,10 @@ const SideBar = () => {
                                     <ModalExtension onCloseModal={onCloseModalExtensionHandler}>
                                         < div
                                             className={classes['modal-extension']}
-                                            onClick={() => deletePageHandler(page.id)}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                deletePageHandler(page.id)
+                                            }}
                                         >
                                             Xóa trang {page.name}
                                         </div>
