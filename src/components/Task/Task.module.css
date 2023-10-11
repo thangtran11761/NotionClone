@@ -24,7 +24,7 @@
 .container-bottom {
     margin-top: 24px;
     flex: 1;
-    overflow: scroll;
+    overflow-x: auto;
 }
 
 .container-bottom::-webkit-scrollbar {
@@ -53,15 +53,15 @@
     display: flex;
     padding-top: 10px;
     width: 100%;
-    /* overflow: scroll; */
     margin: 0 96px;
 }
 
 .column-container {
-    width: 260px;
-    margin-right: 10px;
+    width: 285px;
+    margin-right: 20px;
     padding: 0 5px;
     box-sizing: border-box;
+    /* border: 1px solid #ccc; */
 }
 
 .column-top {
@@ -113,5 +113,72 @@
 }
 
 .column-bottom {
+    padding-bottom: 10px;
+    overflow-y: auto;
+    height: 450px;
+    padding-right: 5px;
+    width: 100%;
     
 }
+
+.column-bottom::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .column-bottom::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .column-bottom::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  .column-bottom::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  .column-bottom::-webkit-scrollbar-thumb:active {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+.column-btn__add-todo {
+    color: #bcbbb9;
+    align-items: center;
+    height: 32px;
+    border-radius: 4px;
+    line-height: 1.2;
+    font-size: 14px;
+    padding-left: 6px;
+    padding-right: 8px;
+    margin-top: 10px;
+}
+
+.column-btn__add-todo:hover {
+    background-color:rgba(211, 209, 203, 0.4);
+    cursor: pointer;
+    margin: 0 2px;
+    margin-top: 10px;
+
+}
+
+.todo-item {
+    border: 1px solid #ccc;
+    margin: 5px 0px;
+    padding: 8px 10px 6px 6px;
+    border-radius: 5px;
+    box-shadow: 0 8px 10px -5px rgba(22, 22, 22,0.1);
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+    width: 260px;
+}
+
+.todo-item__untitled {
+    color: #bcbbb9;
+    margin: 0;
+}
+
