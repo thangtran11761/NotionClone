@@ -2,7 +2,7 @@ import React, { memo, useEffect, useState, useLayoutEffect } from 'react'
 import { Col } from 'antd'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-import { getTodos, updateTodoById, getTodoById } from '../services/TodoService'
+import { getTodos, updateTodoById, addTodo, deleteTodoById } from '../services/TodoService'
 import { getTasks } from '../services/TaskService'
 import classes from '../components/Task/Task.module.css'
 
@@ -27,19 +27,46 @@ const Task = ({ page }) => {
         return () => { }
     }, [page.id])
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         getTodos(page.id).then((res) => setTodos(res))
         return () => { }
     }, [changeTodo])
 
     function swapTodo(index1, index2, todos) {
-        const temp = todos[index1];
-        todos[index1] = todos[index2];
-        todos[index2] = temp;
+        let newTodos = [...sortTodoByIndex(todos)];
+
+        let temp = {
+            id: newTodos[index1].id,
+            name: newTodos[index1].name,
+            content: newTodos[index1].content,
+            idCol: newTodos[index1].idCol,
+            date: newTodos[index1].date
+        };
+
+        newTodos[index1].id = newTodos[index2].id;
+        newTodos[index1].name = newTodos[index2].name;
+        newTodos[index1].content = newTodos[index2].content;
+        newTodos[index1].idCol = newTodos[index2].idCol;
+        newTodos[index1].date = newTodos[index2].date;
+
+        newTodos[index2].id = temp.id;
+        newTodos[index2].name = temp.name;
+        newTodos[index2].content = temp.content;
+        newTodos[index2].idCol = temp.idCol;
+        newTodos[index2].date = temp.date;
+
+        return newTodos;
+    }
+
+    function sortTodoByIndex(todos) {
+        todos.sort((todo1, todo2) => {
+            return todo1.index - todo2.index
+        })
+
+        return todos
     }
 
     const onDragEnd = (result) => {
-        console.log(result);
 
         if (!result.destination) { return }
         if (result.destination) { setSpin(true) }
@@ -55,19 +82,13 @@ const Task = ({ page }) => {
                 return result.source.droppableId === todo.idCol
             })
 
-            swapTodo(result.source.index, result.destination.index, sourceColumn)
+            const newSourceColumn = [...swapTodo(result.source.index, result.destination.index, sourceColumn)]
 
-            sourceColumn.forEach((todo, index) => {
-                updateTodoById(todo.id,
-                    {
-                        id: todo.id,
-                        name: todo.name,
-                        content: todo.content,
-                        idCol: todo.idCol,
-                        date: todo.date,
-                        index: index
-                    })
-            })
+            const todoSource = { ...newSourceColumn[result.source.index] };
+            const todoDestination = { ...newSourceColumn[result.destination.index] };
+
+            updateTodoById(todoSource.id, todoSource)
+            updateTodoById(todoDestination.id, todoDestination)
 
             setChangeTodo(!changeTodo)
             setSpin(false)
@@ -80,63 +101,63 @@ const Task = ({ page }) => {
             let destinationColumn = todos.filter(todo => {
                 return result.destination.droppableId === todo.idCol
             })
+            let idOfNew = 0;
 
             const todoChange = sourceColumn[result.source.index]
 
-            const arr1 = sourceColumn.slice(0, result.source.index)
-            const arr2 = sourceColumn.slice(result.source.index + 1, sourceColumn.length + 1)
+            const arr1 = [...sourceColumn.slice(0, result.source.index)]
+            const arr2 = [...sourceColumn.slice(result.source.index + 1, sourceColumn.length + 1)]
 
             sourceColumn = [...arr1, ...arr2]
 
-            destinationColumn.push(todoChange)
-
-            swapTodo(result.destination.index, destinationColumn.length - 1, destinationColumn)
-
-            sourceColumn.forEach((todo, index) => {
-                updateTodoById(todo.id,
-                    {
-                        id: todo.id,
-                        name: todo.name,
-                        content: todo.content,
-                        idCol: todo.idCol,
-                        date: todo.date,
-                        index: index
-                    })
+            deleteTodoById(todoChange.id).then(res => {
+                for (let i = result.source.index; i < sourceColumn.length; i++) {
+                    updateTodoById(sourceColumn[i].id,
+                        {
+                            id: sourceColumn[i].id,
+                            name: sourceColumn[i].name,
+                            content: sourceColumn[i].content,
+                            idCol: sourceColumn[i].idCol,
+                            date: sourceColumn[i].date,
+                            index: sourceColumn[i].index - 1
+                        })
+                }
             })
 
-            destinationColumn.forEach((todo, index) => {
-                updateTodoById(todo.id,
-                    {
-                        id: todo.id,
-                        name: todo.name,
-                        content: todo.content,
-                        idCol: todo.idCol,
-                        date: todo.date,
-                        index: index
-                    })
+            addTodo({
+                name: todoChange.name,
+                content: todoChange.content,
+                idCol: result.destination.droppableId,
+                date: todoChange.date,
+                index: todoChange.index
+            }).then(res => {
+                idOfNew = res.id
+
+                const newDestinationColumn = [...destinationColumn.slice(0, result.destination.index), {
+                    id: idOfNew,
+                    name: todoChange.name,
+                    content: todoChange.content,
+                    idCol: result.destination.droppableId,
+                    date: todoChange.date,
+                    index: todoChange.index
+                }, ...destinationColumn.slice(result.destination.index, destinationColumn.length + 1)]
+
+                for (let i = result.destination.index; i < newDestinationColumn.length; i++) {
+                    console.log(newDestinationColumn[i] + "-" + i);
+                    updateTodoById(newDestinationColumn[i].id,
+                        {
+                            id: newDestinationColumn[i].id,
+                            name: newDestinationColumn[i].name,
+                            content: newDestinationColumn[i].content,
+                            idCol: newDestinationColumn[i].idCol,
+                            date: newDestinationColumn[i].date,
+                            index: i
+                        })
+                }
             })
 
             setChangeTodo(!changeTodo)
             setSpin(false)
-
-            // getTodoById(result.draggableId)
-            //     .then(res => {
-            //         if (res) {
-            //             updateTodoById(result.draggableId,
-            //                 {
-            //                     id: res.id,
-            //                     name: res.name,
-            //                     content: res.content,
-            //                     idCol: result.destination.droppableId,
-            //                     date: res.date,
-            //                     index: result.destination.index
-            //                 })
-            //                 .then(res => {
-            //                     setChangeTodo(!changeTodo)
-            //                     setSpin(false)
-            //                 })
-            //         }
-            //     })
         }
     };
 
