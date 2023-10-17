@@ -15,3 +15,7 @@ export const updateTodoById = async (id, body) => {
 export const getTodoById = async (id) => {
   return httpRequestJson("GET", `todos/${id}`);
 };
+
+export const deleteTodoById = async (id) => {
+  return httpRequestJson("DELETE", `todos/${id}`);
+};
