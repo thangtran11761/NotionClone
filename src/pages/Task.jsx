@@ -1,8 +1,8 @@
-import React, { memo, useEffect, useState, useLayoutEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col } from 'antd'
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
 
-import { getTodos, updateTodoById, addTodo, deleteTodoById } from '../services/TodoService'
+import { getTodos, updateTodoById } from '../services/TodoService'
 import { getTasks } from '../services/TaskService'
 import classes from '../components/Task/Task.module.css'
 
@@ -101,7 +101,6 @@ const Task = ({ page }) => {
             let destinationColumn = todos.filter(todo => {
                 return result.destination.droppableId === todo.idCol
             })
-            let idOfNew = 0;
 
             const todoChange = sourceColumn[result.source.index]
 
@@ -110,51 +109,38 @@ const Task = ({ page }) => {
 
             sourceColumn = [...arr1, ...arr2]
 
-            deleteTodoById(todoChange.id).then(res => {
-                for (let i = result.source.index; i < sourceColumn.length; i++) {
-                    updateTodoById(sourceColumn[i].id,
-                        {
-                            id: sourceColumn[i].id,
-                            name: sourceColumn[i].name,
-                            content: sourceColumn[i].content,
-                            idCol: sourceColumn[i].idCol,
-                            date: sourceColumn[i].date,
-                            index: sourceColumn[i].index - 1
-                        })
-                }
-            })
+            for (let i = result.source.index; i < sourceColumn.length; i++) {
+                updateTodoById(sourceColumn[i].id,
+                    {
+                        id: sourceColumn[i].id,
+                        name: sourceColumn[i].name,
+                        content: sourceColumn[i].content,
+                        idCol: sourceColumn[i].idCol,
+                        date: sourceColumn[i].date,
+                        index: sourceColumn[i].index - 1
+                    })
+            }
 
-            addTodo({
+            const newDestinationColumn = [...destinationColumn.slice(0, result.destination.index), {
+                id: todoChange.id,
                 name: todoChange.name,
                 content: todoChange.content,
                 idCol: result.destination.droppableId,
                 date: todoChange.date,
-                index: todoChange.index
-            }).then(res => {
-                idOfNew = res.id
+                index: result.destination.index
+            }, ...destinationColumn.slice(result.destination.index, destinationColumn.length + 1)]
 
-                const newDestinationColumn = [...destinationColumn.slice(0, result.destination.index), {
-                    id: idOfNew,
-                    name: todoChange.name,
-                    content: todoChange.content,
-                    idCol: result.destination.droppableId,
-                    date: todoChange.date,
-                    index: todoChange.index
-                }, ...destinationColumn.slice(result.destination.index, destinationColumn.length + 1)]
-
-                for (let i = result.destination.index; i < newDestinationColumn.length; i++) {
-                    console.log(newDestinationColumn[i] + "-" + i);
-                    updateTodoById(newDestinationColumn[i].id,
-                        {
-                            id: newDestinationColumn[i].id,
-                            name: newDestinationColumn[i].name,
-                            content: newDestinationColumn[i].content,
-                            idCol: newDestinationColumn[i].idCol,
-                            date: newDestinationColumn[i].date,
-                            index: i
-                        })
-                }
-            })
+            for (let i = result.destination.index; i < newDestinationColumn.length; i++) {
+                updateTodoById(newDestinationColumn[i].id,
+                    {
+                        id: newDestinationColumn[i].id,
+                        name: newDestinationColumn[i].name,
+                        content: newDestinationColumn[i].content,
+                        idCol: newDestinationColumn[i].idCol,
+                        date: newDestinationColumn[i].date,
+                        index: i
+                    })
+            }
 
             setChangeTodo(!changeTodo)
             setSpin(false)
