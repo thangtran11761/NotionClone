@@ -12,40 +12,59 @@
 }
 
 .popup-wrap-component {
-    padding: 10px;
+    padding: 10px 0;
+}
+
+.popup-wrap-component div{
+    display: flex;
+}
+
+.popup-wrap-component  option {
+    color: #37352f; 
+    height: 20px;
 }
 
 .name-page {
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 5px;
-    color: #37352f;
-    font-size: 14px;
-    padding: 4px;
-    border: 1px solid #9a9995;
+    color: #37352f; 
+    font-size: 13px;
+    padding: 4px 10px;
+    border: 1px solid #e0e0de;
     outline: none;
+    background-color: #f7f7f5;
+    line-height: 20px;
+    border-radius: 3px;
 }
 
 .select-page {
+    flex: 3;
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 5px;
+    margin-right: 5px;
     font-size: 14px;
     padding: 4px;
-    border: 1px solid #9a9995; 
+    border: 1px solid #e0e0de;
     outline: none; 
     color: #37352f;
+    line-height: 20px;
+    border-radius: 3px;
+    background-color: #f7f7f5;
 }
 
 .btn-add-page {
+    flex: 1;
     width: 40%;
     margin: 0 auto;
     font-size: 14px;
     cursor: pointer;
-    border: 1px solid #9a9995; 
+    border: 1px solid #e0e0de; 
     padding: 4px 0;
     background-color:rgba(211, 209, 203, 0.4);
     color: #37352f;
+    border-radius: 3px;
+    color: #9a9995;
 }
 
 .btn-add-page:hover  {

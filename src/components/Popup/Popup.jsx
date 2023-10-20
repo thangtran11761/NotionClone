@@ -13,8 +13,9 @@ const DivWrap = styled.div`
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
-  width: 100%;
+  width: 360px;
   background-color: #fff;
+  z-index: 10;
 `;
 
 const Popup = memo((props) => {
@@ -63,30 +64,33 @@ const Popup = memo((props) => {
                     value={namePage}
                 >
                 </input>
-                <select
-                    className={classes['select-page']}
-                    value={typePage}
-                    onChange={onChangeTypePage}
-                >
-                    <option key="task" value="task" icon="CheckSquareOutlined">
-                        task
-                    </option>
-                    <option key="schedule" value="schedule">
-                        schedule
-                    </option>
-                    <option key="project" value="project">
-                        project
-                    </option>
-                    <option key="text" value="text">
-                        text
-                    </option>
-                </select>
-                <button
-                    className={classes['btn-add-page']}
-                    onClick={addPageHandler}
-                >
-                    Add
-                </button>
+                <div>
+                    <select
+                        className={classes['select-page']}
+                        value={typePage}
+                        onChange={onChangeTypePage}
+                    >
+                        <option key="task" value="task" icon="CheckSquareOutlined">
+                            task
+                        </option>
+                        <option key="schedule" value="schedule">
+                            schedule
+                        </option>
+                        <option key="project" value="project">
+                            project
+                        </option>
+                        <option key="text" value="text">
+                            text
+                        </option>
+                    </select>
+                    <button
+                        className={classes['btn-add-page']}
+                        onClick={addPageHandler}
+                    >
+                        Add
+                    </button>
+                </div>
+
             </div>
         </DivWrap >
     )
