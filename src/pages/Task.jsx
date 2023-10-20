@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Col } from 'antd'
 import { DragDropContext } from 'react-beautiful-dnd';
+import { useSelector } from "react-redux";
 
 import { getTodos, updateTodoById } from '../services/TodoService'
 import { getTasks } from '../services/TaskService'
@@ -15,6 +16,8 @@ const Task = ({ page }) => {
     const [namePageTask, setNamePageTask] = useState("")
     const [changeTodo, setChangeTodo] = useState(true)
     const [spin, setSpin] = useState(false)
+    const newTodo = useSelector((state) => state.newTodo);
+
 
     useEffect(() => {
         getTasks().then((response) => {
@@ -30,7 +33,7 @@ const Task = ({ page }) => {
     useEffect(() => {
         getTodos(page.id).then((res) => setTodos(res))
         return () => { }
-    }, [changeTodo])
+    }, [changeTodo, newTodo])
 
     function swapTodo(index1, index2, todos) {
         let newTodos = [...sortTodoByIndex(todos)];
