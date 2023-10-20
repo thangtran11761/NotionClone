@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from 'react'
 import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons'
 import { Droppable } from 'react-beautiful-dnd';
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import TaskItem from './TaskItem'
 import { getColumn } from '../../services/ColumnService'
@@ -12,7 +12,6 @@ const ColumnTask = memo(({ idCol, todos }) => {
     const [column, setColumn] = useState({})
     const [todoForColumn, setTodoForColumn] = useState([])
 
-    const newTodo = useSelector((state) => state.newTodo);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -23,7 +22,7 @@ const ColumnTask = memo(({ idCol, todos }) => {
         setTodoForColumn(todos.filter(todo => {
             return column.id === todo.idCol
         }))
-    }, [column, todos, newTodo])
+    }, [column, todos])
 
     function sortTodo(todos) {
         todos.sort((todo1, todo2) => {
@@ -69,7 +68,12 @@ const ColumnTask = memo(({ idCol, todos }) => {
                         {todoForColumn && sortTodo(todoForColumn).map((todo, index) => (
                             <TaskItem key={todo.id} todo={todo} index={index} />
                         ))}
-                        <div className={classes['column-btn__add-todo']} onClick={addTodoHandler}>New</div>
+                        <div
+                            className={classes['column-btn__add-todo']}
+                            onClick={addTodoHandler}
+                        >
+                            <PlusOutlined /> New
+                        </div>
                         {provided.placeholder}
                     </div>
                 )}
