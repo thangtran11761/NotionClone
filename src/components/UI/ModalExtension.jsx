@@ -4,7 +4,12 @@ import ReactDOM from "react-dom";
 import classes from "./ModalExtension.module.css";
 
 const Backdrop = (props) => {
-    return <div className={classes.backdrop} onClick={props.onCloseModal}></div>;
+    return <div
+        className={classes.backdrop}
+        onClick={(e) => {
+            props.onCloseModal()
+            e.stopPropagation();
+        }}></div>;
 };
 
 const ModalOverlay = (props) => {
