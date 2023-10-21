@@ -3,74 +3,100 @@
     {
       "id": 1,
       "name": "Column1_0",
-      "content": "Nguyễn",
+      "description": "Nguyễn",
       "idCol": 2,
       "date": "20230701120000",
-      "index": 0
+      "index": 0,
+      "assign": "",
+      "listComment": [1, 2]
     },
     {
       "id": 2,
       "name": "Column1_1",
-      "content": "Nguyễn",
+      "description": "Nguyễn",
       "idCol": 2,
       "date": "20230702120000",
-      "index": 1
+      "index": 1,
+      "assign": "",
+      "listComment": []
     },
     {
       "id": 3,
       "name": "Column1_2",
-      "content": "Demo3",
+      "description": "Demo3",
       "idCol": 2,
       "date": "20230703120000",
-      "index": 2
+      "index": 2,
+      "assign": "",
+      "listComment": []
     },
     {
       "id": 4,
       "name": "Column1_3",
-      "content": "Demo3",
+      "description": "Demo3",
       "idCol": 2,
       "date": "20230703120000",
-      "index": 3
+      "index": 3,
+      "assign": "",
+      "listComment": []
     },
     {
       "id": 5,
       "name": "Column1_4",
-      "content": "",
+      "description": "",
       "idCol": 2,
       "date": "20231009010958",
-      "index": 4
+      "index": 4,
+      "assign": "",
+      "listComment": []
     },
     {
       "id": 10,
       "name": "Column2_1",
-      "content": "",
+      "description": "",
       "idCol": 1,
       "date": "20231009010948",
-      "index": 0
+      "index": 0,
+      "assign": "",
+      "listComment": []
     },
     {
       "id": 11,
       "name": "Column2_0",
-      "content": "Demo6",
+      "description": "Demo6",
       "idCol": 1,
       "date": "20230918120000",
-      "index": -1
+      "index": -1,
+      "assign": "",
+      "listComment": []
     },
     {
       "name": "https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/",
-      "content": "",
+      "description": "",
       "idCol": 1,
       "date": "20231020234805",
       "index": 2,
-      "id": 12
+      "id": 12,
+      "assign": "",
+      "listComment": []
+    },
+    {
+      "name": "",
+      "description": "",
+      "idCol": 1,
+      "date": "20231020235022",
+      "index": 3,
+      "id": 13,
+      "assign": "",
+      "listComment": []
     },
     {
       "name": "",
       "content": "",
-      "idCol": 1,
-      "date": "20231020235022",
-      "index": 3,
-      "id": 13
+      "idCol": 3,
+      "date": "20231022011308",
+      "index": 0,
+      "id": 14
     }
   ],
   "schedule": [
@@ -131,21 +157,23 @@
       "col": 1,
       "type": "task",
       "idPage": 1,
-      "list": [1, 2, 3]
+      "status": "init"
     },
     {
       "id": 2,
       "name": "In progress",
       "col": 2,
       "type": "task",
-      "idPage": 1
+      "idPage": 1,
+      "status": "doing"
     },
     {
       "id": 3,
       "name": "Complete",
       "col": 3,
       "type": "task",
-      "idPage": 1
+      "idPage": 1,
+      "status": "done"
     }
   ],
   "pages": [
@@ -194,6 +222,20 @@
     {
       "id": 4,
       "name": "text"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "idTodo": 1,
+      "content": "antd",
+      "date": "20231022020000"
+    },
+    {
+      "id": 2,
+      "idTodo": 1,
+      "content": "sass",
+      "date": "20231022020000"
     }
   ]
 }
