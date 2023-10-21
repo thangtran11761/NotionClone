@@ -41,22 +41,28 @@ const Task = ({ page }) => {
         let temp = {
             id: newTodos[index1].id,
             name: newTodos[index1].name,
-            content: newTodos[index1].content,
+            description: newTodos[index1].description,
             idCol: newTodos[index1].idCol,
-            date: newTodos[index1].date
+            date: newTodos[index1].date,
+            assign: newTodos[index1].assign,
+            listComment: newTodos[index1].listComment
         };
 
         newTodos[index1].id = newTodos[index2].id;
         newTodos[index1].name = newTodos[index2].name;
-        newTodos[index1].content = newTodos[index2].content;
+        newTodos[index1].description = newTodos[index2].description;
         newTodos[index1].idCol = newTodos[index2].idCol;
         newTodos[index1].date = newTodos[index2].date;
+        newTodos[index1].assign = newTodos[index2].assign;
+        newTodos[index1].listComment = newTodos[index2].listComment;
 
         newTodos[index2].id = temp.id;
         newTodos[index2].name = temp.name;
-        newTodos[index2].content = temp.content;
+        newTodos[index2].description = temp.description;
         newTodos[index2].idCol = temp.idCol;
         newTodos[index2].date = temp.date;
+        newTodos[index2].assign = temp.assign;
+        newTodos[index2].listComment = temp.listComment;
 
         return newTodos;
     }
@@ -117,20 +123,24 @@ const Task = ({ page }) => {
                     {
                         id: sourceColumn[i].id,
                         name: sourceColumn[i].name,
-                        content: sourceColumn[i].content,
+                        description: sourceColumn[i].description,
                         idCol: sourceColumn[i].idCol,
                         date: sourceColumn[i].date,
-                        index: sourceColumn[i].index - 1
+                        index: sourceColumn[i].index - 1,
+                        assign: sourceColumn[i].assign,
+                        listComment: sourceColumn[i].listComment
                     })
             }
 
             const newDestinationColumn = [...destinationColumn.slice(0, result.destination.index), {
                 id: todoChange.id,
                 name: todoChange.name,
-                content: todoChange.content,
+                description: todoChange.description,
                 idCol: result.destination.droppableId,
                 date: todoChange.date,
-                index: result.destination.index
+                index: result.destination.index,
+                assign: result.destination.assign,
+                listComment: result.destination.listComment
             }, ...destinationColumn.slice(result.destination.index, destinationColumn.length + 1)]
 
             for (let i = result.destination.index; i < newDestinationColumn.length; i++) {
@@ -138,9 +148,11 @@ const Task = ({ page }) => {
                     {
                         id: newDestinationColumn[i].id,
                         name: newDestinationColumn[i].name,
-                        content: newDestinationColumn[i].content,
+                        description: newDestinationColumn[i].description,
                         idCol: newDestinationColumn[i].idCol,
                         date: newDestinationColumn[i].date,
+                        assign: newDestinationColumn[i].assign,
+                        listComment: newDestinationColumn[i].listComment,
                         index: i
                     })
             }
