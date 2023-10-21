@@ -66,7 +66,7 @@ const ColumnTask = memo(({ idCol, todos }) => {
                         {...provided.droppableProps}
                     >
                         {todoForColumn && sortTodo(todoForColumn).map((todo, index) => (
-                            <TaskItem key={todo.id} todo={todo} index={index} />
+                            <TaskItem key={todo.id} todo={todo} index={index} status={column.status} />
                         ))}
                         <div
                             className={classes['column-btn__add-todo']}
