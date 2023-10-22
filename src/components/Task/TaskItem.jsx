@@ -57,33 +57,35 @@ const TaskItem =
                     onClose={onClose}
                     open={open}
                 >
-                    <Descriptions
-                        contentStyle={{ fontSize: '16px' }}
-                        labelStyle={{ fontSize: '15px' }}
-                    >
-                        <Descriptions.Item label="Assign" span={3}>{task.assign}</Descriptions.Item>
-                        <Descriptions.Item label="Status" span={3}>
-                            {
-                                status === 'init'
-                                    ? <Tag icon={<ClockCircleOutlined />} color="default">waiting</Tag>
-                                    : status === 'doing'
-                                        ? <Tag icon={<SyncOutlined spin />} color="processing">processing</Tag>
-                                        : <Tag icon={<CheckCircleOutlined />} color="success">success</Tag>
-                            }
-                        </Descriptions.Item>
-                        <Descriptions.Item label="Description" span={3}>{task.description}</Descriptions.Item>
-                    </Descriptions>
-                    <hr></hr>
-                    {
-                        task.listComment &&
-                        task.listComment.map(
-                            cmt => <Comment assign={task.assign} idComment={cmt} />
-                        )
-                    }
-                    <p>Show Comment</p>
-                    <hr></hr>
-                    <p>Enter Comment</p>
-                    <input placeholder='Enter your comment' />
+                    <div className={classes['padding-0-20']}>
+                        <Descriptions
+                            contentStyle={{ fontSize: '16px' }}
+                            labelStyle={{ fontSize: '15px' }}
+                        >
+                            <Descriptions.Item label="Assign" span={3}>{task.assign}</Descriptions.Item>
+                            <Descriptions.Item label="Status" span={3}>
+                                {
+                                    status === 'init'
+                                        ? <Tag icon={<ClockCircleOutlined />} color="default">waiting</Tag>
+                                        : status === 'doing'
+                                            ? <Tag icon={<SyncOutlined spin />} color="processing">processing</Tag>
+                                            : <Tag icon={<CheckCircleOutlined />} color="success">success</Tag>
+                                }
+                            </Descriptions.Item>
+                            <Descriptions.Item label="Description" span={3}>{task.description}</Descriptions.Item>
+                        </Descriptions>
+                        <hr className={classes['border-top-1-solid-cfcfcd']}></hr>
+                        {
+                            task.listComment &&
+                            task.listComment.map(
+                                cmt => <Comment assign={task.assign} idComment={cmt} />
+                            )
+                        }
+                        <hr className={classes['border-top-1-solid-cfcfcd']}></hr>
+                        <p>Enter Comment</p>
+                        <input placeholder='Enter your comment' />
+                    </div>
+
                 </Drawer>
             </>
 
