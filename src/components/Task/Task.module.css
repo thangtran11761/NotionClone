@@ -198,3 +198,50 @@
     margin: 0;
 }
 
+.todo-item__form-title {
+  display: flex;
+}
+
+.form-title__input {
+  flex: 5;
+  border: none;
+  outline: none;
+  font-size: 30px;
+  /* line-height: 24px; */
+  font-weight: 600;
+}
+
+.form-title__button {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.form-title__button-cancel,.form-title__button-save {
+  font-size: 24px;
+  border-radius: 50px;
+  border: none;
+}
+
+.form-title__button-cancel {
+  background-color: #fff;
+}
+
+.form-title__button-save {
+  background-color: #4c96ff;
+  color: #fff;
+
+}
+
+.form-title__button-save:hover {
+  background-color: #8cbcff;
+  cursor: pointer;
+}
+
+.form-title__button-cancel:hover {
+  background-color: #8cbcff;
+  color: #fff;
+  cursor: pointer;
+}

@@ -12,6 +12,10 @@ export const updateTodoById = async (id, body) => {
   return httpRequestJson("PUT", `todos/${id}`, body);
 };
 
+export const updateTitleTodoById = async (id, body) => {
+  return httpRequestJson("PATCH", `todos/${id}`, body);
+};
+
 export const getTodoById = async (id) => {
   return httpRequestJson("GET", `todos/${id}`);
 };
