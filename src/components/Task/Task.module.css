@@ -198,6 +198,15 @@
     margin: 0;
 }
 
+.padding-0-20 {
+  padding: 0 30px;
+}
+
+.border-top-1-solid-cfcfcd {
+  border: none;
+  border-top: 1px solid #cfcfcd;
+}
+
 .todo-item__form-title {
   display: flex;
 }
@@ -226,22 +235,138 @@
 }
 
 .form-title__button-cancel {
-  background-color: #fff;
+  background-color: #cfcfcd;
+  color: #fff;
 }
 
 .form-title__button-save {
-  background-color: #4c96ff;
+  background-color: #8cbcff;
   color: #fff;
 
 }
 
 .form-title__button-save:hover {
-  background-color: #8cbcff;
+  background-color: #4c96ff;
   cursor: pointer;
 }
 
 .form-title__button-cancel:hover {
-  background-color: #8cbcff;
+  background-color: #bcbbb9;
   color: #fff;
   cursor: pointer;
 }
+
+.todo-item__comment {
+  padding: 10px 10px 5px 10px;
+}
+
+.todo-item__comment-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-top__left {
+  display: flex;
+}
+
+.left-assign {
+  font-weight: 500;
+  margin-right: 20px;
+  font-size: 16px;
+}
+
+.left-date {
+  color: #bcbbb9;
+  line-height: 23px;
+}
+
+.comment-top__right {
+  display: none;
+  font-size: 16px;
+  padding: 0 3px;
+  border-radius: 5px;
+  border: 1px solid #bcbbb9;
+}
+
+.todo-item__comment:hover .comment-top__right{
+  display: block;
+}
+
+.comment-top__right:hover {
+  background-color: #efefef;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.comment-bottom__content {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* form-title */
+
+/* form-comment */
+
+.comment-bottom__form-comment {
+  padding: 4px 0;
+}
+
+.form-comment__input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  /* line-height: 24px; */
+  /* font-weight: 600; */
+  margin: 3px 0 2px 0;
+  padding: 0 10px 0 6px;
+}
+
+.form-comment__button {
+  /* flex: 1; */
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.form-comment__button-cancel,.form-comment__button-save {
+  font-size: 9px;
+  border-radius: 50px;
+  border: none;
+  padding: 0;
+  /* line-height: 9px; */
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+.form-comment__button-cancel {
+  background-color: #b9b8b6;
+  color: #fff;
+}
+
+.form-comment__button-save {
+  background-color: #4c96ff;
+  color: #fff;
+
+}
+
+.form-comment__button-save:hover {
+  background-color: #8cbcff;
+  cursor: pointer;
+}
+
+.form-comment__button-cancel:hover {
+  background-color: #cfcfcd;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button-cancel__icon {
+  font-weight: 600 !important;
+  font-weight: bold;
+  /* font-size: 20px; */
+
+}
+
