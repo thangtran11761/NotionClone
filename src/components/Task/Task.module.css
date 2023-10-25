@@ -305,7 +305,7 @@
 
 /* form-title */
 
-/* form-comment */
+/* form-edit-comment */
 
 .comment-bottom__form-comment {
   padding: 4px 0;
@@ -367,6 +367,39 @@
   font-weight: 600 !important;
   font-weight: bold;
   /* font-size: 20px; */
+}
+
+/* form-edit-comment */
+
+/* form-comment */
+
+.todo-item__form-comment {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-item__form-comment .form-comment__input {
+  width: 90%;
+}
+
+.todo-item__form-comment div {
+    margin: 0 5px;
+}
+
+.todo-item__form-comment .form-comment__btn-save {
+
+  background-color: #4c96ff;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 50px;
+  border: none;
+  padding: 0;
+  line-height: 23px;
+  width: 23px;
+  /* height: 20px; */
 
 }
+
+/* form-comment */
 

@@ -8,7 +8,7 @@ import { getTodoById } from '../../services/TodoService';
 
 import FormTitle from './FormTitle';
 import Comment from './Comment';
-
+import FormComment from './FormComment';
 
 const TaskItem =
     memo(({ todo, index, status }) => {
@@ -81,9 +81,12 @@ const TaskItem =
                                 cmt => <Comment assign={task.assign} idComment={cmt} />
                             )
                         }
+                        <FormComment
+                            idTask={task.id}
+                            listComment={task.listComment}
+                            onChangeHandler={onChangeHandler}
+                        />
                         <hr className={classes['border-top-1-solid-cfcfcd']}></hr>
-                        <p>Enter Comment</p>
-                        <input placeholder='Enter your comment' />
                     </div>
 
                 </Drawer>
