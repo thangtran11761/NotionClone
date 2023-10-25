@@ -23,3 +23,7 @@ export const getTodoById = async (id) => {
 export const deleteTodoById = async (id) => {
   return httpRequestJson("DELETE", `todos/${id}`);
 };
+
+export const updateListCommentById = async (id, body) => {
+  return httpRequestJson("PATCH", `todos/${id}`, body);
+};
