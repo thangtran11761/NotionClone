@@ -4,7 +4,8 @@ import { Draggable } from 'react-beautiful-dnd';
 import { CheckCircleOutlined, SyncOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
 import classes from './Task.module.css'
-import { getTodoById } from '../../services/TodoService';
+import { getTodoById, updateListCommentById } from '../../services/TodoService';
+import { deleteCommentById } from '../../services/CommentService';
 
 import FormTitle from './FormTitle';
 import Comment from './Comment';
@@ -29,6 +30,15 @@ const TaskItem =
 
         const onChangeHandler = () => {
             setChangeTodo(!changeTodo)
+        }
+
+        const onDeleteCommentHandler = (id) => {
+            let newListCmt = task.listComment.filter(idCmt => idCmt !== id)
+
+            deleteCommentById(id).then(res =>
+                updateListCommentById(task.id, { listComment: newListCmt })
+                    .then(res => onChangeHandler())
+            )
         }
 
         return (
@@ -78,7 +88,7 @@ const TaskItem =
                         {
                             task.listComment &&
                             task.listComment.map(
-                                cmt => <Comment assign={task.assign} idComment={cmt} />
+                                cmt => <Comment assign={task.assign} idComment={cmt} onDeleteCommentHandler={onDeleteCommentHandler} />
                             )
                         }
                         <FormComment

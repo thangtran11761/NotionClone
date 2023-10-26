@@ -267,6 +267,7 @@
 
 .comment-top__left {
   display: flex;
+  line-height: 30px;
 }
 
 .left-assign {
@@ -277,7 +278,7 @@
 
 .left-date {
   color: #bcbbb9;
-  line-height: 23px;
+  line-height: 30px;
 }
 
 .comment-top__right {
@@ -290,9 +291,23 @@
 
 .todo-item__comment:hover .comment-top__right{
   display: block;
+  display: flex;
 }
 
 .comment-top__right:hover {
+
+}
+
+.btn-edit,.btn-delete {
+  width: 16px;
+  margin: 3px 0;
+  display: flex;
+  justify-content: center;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.btn-edit:hover ,.btn-delete:hover {
   background-color: #efefef;
   cursor: pointer;
   font-size: 16px;

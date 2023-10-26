@@ -11,3 +11,7 @@ export const updateContentCommentById = async (id, body) => {
 export const addComment = async (body) => {
   return httpRequestJson("POST", `comments`, body);
 };
+
+export const deleteCommentById = async (id) => {
+  return httpRequestJson("DELETE", `comments${id}`);
+};

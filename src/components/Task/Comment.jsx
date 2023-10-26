@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { EditOutlined } from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 import classes from './Task.module.css'
 import { getCommentById } from '../../services/CommentService'
@@ -24,10 +24,16 @@ const Comment = (props) => {
                     <div className={classes['left-date']}>{spreadDate(comment.date)}</div>
                 </div>
                 <div className={classes['comment-top__right']}>
-                    <EditOutlined onClick={() => {
-                        setIsEditComment(true)
-                    }}
-                    />
+                    <div className={classes['btn-edit']}>
+                        <EditOutlined onClick={() => {
+                            setIsEditComment(true)
+                        }} />
+                    </div>
+                    <div className={classes['btn-delete']}>
+                        <DeleteOutlined onClick={() => {
+                            props.onDeleteCommentHandler(props.idComment)
+                        }} />
+                    </div>
                 </div>
             </div>
             <div className={classes['todo-item__comment-bottom']}>
